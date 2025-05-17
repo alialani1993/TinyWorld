@@ -35,7 +35,19 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("Vertical", v);
+        if (Mathf.Abs(v) > 0)
+        {
+            animator.SetFloat("Vertical", v);
+        }
+        else if (Mathf.Abs(h) > 0)
+        {
+            animator.SetFloat("Vertical", h);
+        }
+        else
+        {
+            animator.SetFloat("Vertical", 0);
+        }
+        
 
         // Flatten camera directions to XZ plane
         Vector3 camForward = cameraTransform.forward;
@@ -86,7 +98,7 @@ public class PlayerController : MonoBehaviour
     void CheckGrounded()
     {
         
-        if (Physics.OverlapSphere(transform.position,playerCollider.radius,mask).Length > 0)
+        if (Physics.OverlapSphere(transform.position,playerCollider.radius*transform.localScale.x*0.5f,mask).Length > 0)
         {
             isGrounded = true;
         }
@@ -99,6 +111,6 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, playerCollider.radius);
+        Gizmos.DrawWireSphere(transform.position, playerCollider.radius* transform.localScale.x * 0.5f);
     }
 }
