@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("Vertical", v);
 
         // Flatten camera directions to XZ plane
         Vector3 camForward = cameraTransform.forward;
