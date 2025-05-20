@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerController : MonoBehaviour
 {
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         // Movement input relative to camera
         Vector3 move = camRight * h + camForward * v;
-        transform.position += move.normalized * moveSpeed * Time.deltaTime;
+        rb.velocity = new Vector3(move.x * moveSpeed,rb.velocity.y,move.z * moveSpeed);
 
         // Handle rotation only when moving
         if (move.magnitude > 0.01f && isGrounded)
