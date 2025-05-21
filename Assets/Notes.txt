@@ -1,0 +1,24 @@
+Player Controller:
+
+
+SMALL:
+Scale: 0.1
+Move Speed: 2
+Jump Force: 5
+
+Cinemachine:
+Top: 1 1
+Mid: 0.5 2
+Bot 0 1
+
+BIG:
+Scale: 1.25
+Move Speed: 7
+Jump Force: 7
+
+Cinemachine:
+Top: 4 8
+Mid: 2 5
+Bot 0 8
+
+
