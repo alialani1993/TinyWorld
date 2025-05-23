@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public CapsuleCollider playerCollider;
     public bool isGrounded;
+    public bool isCollided;
     public float groundedOffset;
     public LayerMask mask;
     private Animator animator;
@@ -58,7 +59,20 @@ public class PlayerController : MonoBehaviour
         camRight.Normalize();
 
         // Movement input relative to camera
-        Vector3 move = camRight * h + camForward * v;
+        Vector3 move = Vector3.zero;
+
+        // Stops wall sticking
+        if (!isGrounded && isCollided)
+        {
+
+            move = new Vector3(0, rb.velocity.y,0);
+         
+        }
+        else
+        {
+            move = camRight * h + camForward * v;
+        }
+        
         rb.velocity = new Vector3(move.x * moveSpeed,rb.velocity.y,move.z * moveSpeed);
 
         // Handle rotation only when moving
@@ -98,7 +112,7 @@ public class PlayerController : MonoBehaviour
     void CheckGrounded()
     {
         
-        if (Physics.OverlapSphere(transform.position,playerCollider.radius*transform.localScale.x*0.5f,mask).Length > 0)
+        if (Physics.OverlapSphere(transform.position,playerCollider.radius*transform.localScale.x*0.75f,mask).Length > 0)
         {
             isGrounded = true;
         }
@@ -108,6 +122,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isCollided = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isCollided = false;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

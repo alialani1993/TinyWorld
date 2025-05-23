@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ali/OfficeScene.unity
+    guid: de789cb5b4bae024aac63378612c3c0a
   m_configObjects: {}
