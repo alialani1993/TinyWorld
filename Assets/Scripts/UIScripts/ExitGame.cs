@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ExitGame : MonoBehaviour
 {
+#if !UNITY_WEBGL
     [SerializeField] private MeshRenderer[] _meshRenderer;
     [SerializeField] private List<Material> _defaultMat;
     [SerializeField] private List<Material> _mat;
@@ -32,4 +33,5 @@ public class ExitGame : MonoBehaviour
             _meshRenderer[i].SetMaterials(_defaultMat);
         }
     }
+#endif
 }
