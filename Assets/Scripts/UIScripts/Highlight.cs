@@ -11,7 +11,7 @@ public class Highlight : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = UnityEngine.CursorLockMode.None;
     }
     private void OnMouseOver()
     {
