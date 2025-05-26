@@ -9,10 +9,6 @@ public class Highlight : MonoBehaviour
     [SerializeField] private List<Material> _defaultMat;
     [SerializeField] private List<Material> _mat;
 
-    private void Awake()
-    {
-        Cursor.lockState = CursorLockMode.None;
-    }
     private void OnMouseOver()
     {
         _skinneMeshRenderer.SetMaterials(_mat);
