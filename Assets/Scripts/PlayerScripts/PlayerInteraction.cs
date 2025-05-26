@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     public float baseInteractRange;
     public float interactRange;
     public float interactRadius;
+    public TMP_Text interactableText;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +39,14 @@ public class PlayerInteraction : MonoBehaviour
             {
                 focusedInteractable = hit.transform.GetComponent<IInteractable>();
                 Debug.Log("Interactable detected");
+                interactableText.text = "[E]\n" + focusedInteractable.GetInteractableText();
             }
 
         }
         else
         {
             focusedInteractable = null;
+            interactableText.text = "";
         }
     }
 

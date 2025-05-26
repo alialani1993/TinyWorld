@@ -6,6 +6,12 @@ using UnityEngine.Events;
 public class DanceInteractable : MonoBehaviour, IInteractable
 {
     public UnityEvent makeDance;
+
+    public string GetInteractableText()
+    {
+        return "Dance";
+    }
+
     public void Interact()
     {
         makeDance.Invoke();
