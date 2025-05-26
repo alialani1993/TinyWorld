@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        rb= GetComponent<Rigidbody>();
+        Cursor.lockState = UnityEngine.CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<CapsuleCollider>();
         animator = GetComponent<Animator>();
         if (cameraTransform == null && Camera.main != null)

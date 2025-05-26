@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Snow/BedroomScene.unity
+    guid: 097f21bde4239374daf8956bda6b814c
+  - enabled: 1
     path: Assets/Scenes/Ali/OfficeScene.unity
     guid: de789cb5b4bae024aac63378612c3c0a
+  - enabled: 1
+    path: Assets/Scenes/Snow/HangoutScene.unity
+    guid: 391ad140816d3eb4a89a58991d8162f3
   m_configObjects: {}

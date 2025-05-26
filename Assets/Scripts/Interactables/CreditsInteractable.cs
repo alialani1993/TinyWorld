@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class JukeboxInteractable : MonoBehaviour, IInteractable
+public class CreditsInteractable : MonoBehaviour, IInteractable
 {
-    public UnityEvent pressButton;
-
+    public UnityEvent showCredits;
     public string GetInteractableText()
     {
-        return "Change Song";
+        return "Show Credits";
     }
 
     public void Interact()
     {
-        pressButton.Invoke();
+        showCredits.Invoke();
     }
+
 }
