@@ -9,10 +9,6 @@ public class CreditsPoster : MonoBehaviour
     [SerializeField] private List<Material> _defaultMat;
     [SerializeField] private List<Material> _mat;
 
-    private void Awake()
-    {
-        Cursor.lockState = UnityEngine.CursorLockMode.None;
-    }
     private void OnMouseOver()
     {
         _meshRenderer.SetMaterials(_mat);
